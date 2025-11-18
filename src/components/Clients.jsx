@@ -17,11 +17,20 @@ export default function Clients() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const interactionTimeout = useRef(null);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
+    setIsUserInteracting(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
+    
+    // Clear any existing timeout
+    if (interactionTimeout.current) {
+      clearTimeout(interactionTimeout.current);
+    }
   };
 
   const handleMouseMove = (e) => {
@@ -34,11 +43,49 @@ export default function Clients() {
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    
+    // Resume animation after 2 seconds of no interaction
+    interactionTimeout.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 2000);
   };
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+    setIsHovering(false);
+    
+    // Resume animation after 2 seconds of no interaction
+    interactionTimeout.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 2000);
   };
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleScroll = () => {
+    setIsUserInteracting(true);
+    
+    // Clear existing timeout
+    if (interactionTimeout.current) {
+      clearTimeout(interactionTimeout.current);
+    }
+    
+    // Resume animation after 2 seconds of no scrolling
+    interactionTimeout.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 2000);
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (interactionTimeout.current) {
+        clearTimeout(interactionTimeout.current);
+      }
+    };
+  }, []);
 
   return (
     <section className="py-16 bg-white">
@@ -68,6 +115,8 @@ export default function Clients() {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter}
+          onScroll={handleScroll}
         >
           <style jsx>{`
             @keyframes scroll {
@@ -84,8 +133,11 @@ export default function Clients() {
             .scroll-container:hover {
               animation-play-state: paused;
             }
+            .scroll-container.paused {
+              animation-play-state: paused;
+            }
           `}</style>
-          <div className="flex scroll-container">
+          <div className={`flex scroll-container ${isUserInteracting || isHovering ? 'paused' : ''}`}>
             {/* First set of clients */}
             {clients.map((client, index) => (
               <div
