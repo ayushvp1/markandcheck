@@ -85,12 +85,12 @@ export default function Header() {
           <p className="font-normal text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl text-white/90 transition-opacity duration-500">
             {banners[currentSlide].subtitle}
           </p>
-          <p className="font-normal text-lg mb-8 text-white/90 transition-opacity duration-500">
+          <p className="font-normal text-lg mb-12 text-white/90 transition-opacity duration-500">
             <span className="bg-[#8B7355] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
               {banners[currentSlide].highlight}
             </span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center mt-4">
             <a
               href="#contact"
               className="bg-primary-brown text-white hover:bg-dark-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
