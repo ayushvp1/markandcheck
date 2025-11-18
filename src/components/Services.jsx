@@ -4,8 +4,8 @@ import { getAllServices } from '../data/services';
 export default function Services() {
   const allServices = getAllServices();
 
-  // Only show first 6 services on home page
-  const services = allServices.slice(0, 6);
+  // Only show first 4 services on home page
+  const services = allServices.slice(0, 4);
 
   // Icon mapping for each service
   const getServiceIcon = (id) => {
@@ -89,7 +89,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {services.map((service) => (
             <Link
@@ -103,7 +103,7 @@ export default function Services() {
               
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-semibold flex-1">
+                  <h3 className="text-2xl font-semibold flex-1">
                     {service.title}
                   </h3>
                   <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -113,7 +113,7 @@ export default function Services() {
                   </div>
                 </div>
 
-                <p className="text-sm text-white/90 leading-relaxed">
+                <p className="text-base text-white/90 leading-relaxed">
                   {service.shortDescription}
                 </p>
               </div>

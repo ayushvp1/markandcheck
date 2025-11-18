@@ -23,14 +23,14 @@ export default function Footer() {
   return (
     <footer className="bg-[#F5F1ED] text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info with Logo */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center mb-4 cursor-pointer">
               <img
                 src="/img/Mark_N_Check_Logo_Vector.png"
                 alt="Mark & Check Logo"
-                className="h-20 w-auto"
+                className="h-16 w-auto object-contain"
               />
             </Link>
             <p className="mb-4 text-gray-600">

@@ -2,11 +2,26 @@
 
 import { useState, useEffect } from 'react';
 
-// Sample banner images — replace with your actual paths
+// Banner images and their corresponding content
 const banners = [
-  '/img/tabs/img1.jpg',
-  '/img/tabs/img2.jpg',
-  '/img/tabs/img3.jpg',
+  {
+    image: '/img/slide1.jpg',
+    title: 'Welcome to Mark & Check',
+    subtitle: 'Your partner in financial excellence and business growth',
+    highlight: 'Professional accounting & legal services'
+  },
+  {
+    image: '/img/slide2.jpg',
+    title: 'Expert Internal Audit & Compliance',
+    subtitle: 'Ensuring regulatory clarity and strategic compliance for your business',
+    highlight: 'Trusted by 1000+ clients'
+  },
+  {
+    image: '/img/slide3.jpg',
+    title: 'Empowering Your Business Success',
+    subtitle: 'Comprehensive solutions tailored to your unique needs',
+    highlight: 'Tax, Audit, Corporate Advisory & More'
+  }
 ];
 
 export default function Header() {
@@ -23,23 +38,25 @@ export default function Header() {
     <header id="home" className="min-h-screen flex items-center text-left relative overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0 z-0">
-        {banners.map((src, index) => (
+        {banners.map((banner, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
           >
             <img
-              src={src}
+              src={banner.image}
               alt={`Professional accounting banner ${index + 1}`}
               className="w-full h-full object-cover"
               onError={(e) => {
-                console.log(`Failed to load image: ${src}`);
+                console.log(`Failed to load image: ${banner.image}`);
                 e.target.style.display = 'none';
               }}
             />
           </div>
         ))}
+        {/* White gradient at top for logo visibility */}
+        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/90 to-transparent"></div>
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -62,16 +79,18 @@ export default function Header() {
       {/* Content Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
         <div className="max-w-4xl">
-          <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white">
-            Your trusted partner for internal audit, regulatory clarity, and strategic compliance
+          <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white transition-opacity duration-500">
+            {banners[currentSlide].title}
           </h1>
-          <p className="font-normal text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl text-white/90">
-            <span className="bg-beige text-black px-0 py-1 rounded-lg">
-              Professional accounting services
-            </span>
-            {'  '}that help your business grow  with confidence and clarity.
+          <p className="font-normal text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl text-white/90 transition-opacity duration-500">
+            {banners[currentSlide].subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-start items-start sm:items-center">
+          <p className="font-normal text-lg mb-8 text-white/90 transition-opacity duration-500">
+            <span className="bg-[#8B7355] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+              {banners[currentSlide].highlight}
+            </span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center">
             <a
               href="#contact"
               className="bg-primary-brown text-white hover:bg-dark-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
