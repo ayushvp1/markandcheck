@@ -17,7 +17,7 @@ export default function Blogs() {
             className="font-bold text-4xl mb-4"
             style={{ color: 'var(--black)' }}
           >
-            Latest Insights
+            Latest Update
           </h2>
           <p
             className="font-normal text-lg max-w-2xl mx-auto"

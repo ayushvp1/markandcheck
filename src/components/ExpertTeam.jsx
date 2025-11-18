@@ -4,7 +4,7 @@ export default function ExpertTeam() {
     const teamMembers = [
         {
             name: "AHMMED RAZI KM",
-            position: "Managing Partner\nChartered Accountant (CA)",
+            position: "Managing Partner\nChartered Accountant",
             description:
                 "A dedicated finance professional committed to delivering accurate, compliant, and strategic financial solutions across taxation, audit, and corporate advisory services.",
         },

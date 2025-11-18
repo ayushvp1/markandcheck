@@ -1,6 +1,5 @@
 import Header from './Header';
 import OurStory from './OurStory';
-import About from './About';
 import Services from './Services';
 import WhyPAH from './WhyPAH';
 import Industries from './Industries';
@@ -16,11 +15,10 @@ export default function Home() {
       <Header />
       <OurStory />
       <Services />
+      <Blogs />
       <Clients />
       <WhyPAH />
       <Industries />
-      <About />
-      <Blogs />
       <ExpertTeam />
       <StatsAndCareers />
       <Contact />

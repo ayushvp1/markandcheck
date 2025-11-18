@@ -75,7 +75,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Address */}
+                {/* Offices */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-beige rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-primary-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,13 +85,22 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-lg mb-2" style={{ color: 'var(--black)' }}>
-                      Address
+                      Our Offices
                     </h4>
-                    <div className="leading-relaxed" style={{ color: 'var(--medium-gray)' }}>
-                      <p>{contact.address.street}</p>
-                      <p>{contact.address.suite}</p>
-                      <p>{contact.address.city}, {contact.address.state} {contact.address.zip}</p>
-                    </div>
+                    {contact.offices.map((office, index) => (
+                      <div key={index} className="mb-4 last:mb-0">
+                        <p className="font-semibold text-sm mb-1" style={{ color: 'var(--black)' }}>
+                          {office.name}
+                        </p>
+                        <div className="leading-relaxed text-sm" style={{ color: 'var(--medium-gray)' }}>
+                          <p>{office.street}</p>
+                          <p>{office.suite}</p>
+                          <p>{office.city}, {office.state} - {office.zip}</p>
+                          <p>{office.country}</p>
+                          <p className="mt-1">Phone: {office.phone}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

@@ -1,13 +1,28 @@
 export const contactInfo = {
-  phone: "+91 99467 83111",
+  phone: "+91 9946137111",
   email: "markncheck@gmail.com",
-  address: {
-    street: "#2221, HiLite Business Park",
-    suite: "Phase II, 2nd Floor, HiLite City",
-    city: "Kozhikode",
-    state: "Kerala 673014",
-    zip: "India"
-  },
+  offices: [
+    {
+      name: "Kozhikode Office",
+      street: "#2221, HiLite Business Park",
+      suite: "Phase II, 2nd Floor, HiLite City",
+      city: "Kozhikode",
+      state: "Kerala",
+      zip: "673014",
+      country: "India",
+      phone: "+91 9946137111"
+    },
+    {
+      name: "Kochi Office",
+      street: "1st Floor, Muhammad Haji Building",
+      suite: "Railway Station Road Near Lulu Mall Edappallly PO",
+      city: "Kochi",
+      state: "Kerala",
+      zip: "682024",
+      country: "India",
+      phone: "+91 9633776546"
+    }
+  ],
   hours: {
     weekdays: "Monday – Saturday: 9:30 AM – 6:00 PM",
     saturday: "",
