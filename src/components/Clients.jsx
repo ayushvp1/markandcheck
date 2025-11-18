@@ -20,7 +20,7 @@ export default function Clients() {
             className="font-bold text-3xl mb-4"
             style={{ color: 'var(--black)' }}
           >
-            Powering Business Success
+            Our clients network
           </h2>
           <p
             className="font-normal text-lg max-w-2xl mx-auto"

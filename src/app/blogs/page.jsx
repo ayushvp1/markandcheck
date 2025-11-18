@@ -14,7 +14,7 @@ export default function BlogsPage() {
       {/* Header */}
       <div className="gradient-green-light text-black py-16">
         <div className="max-w-6xl mx-auto px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blogs</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Latest Updates</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Comprehensive accounting and financial solutions tailored to your business needs
           </p>

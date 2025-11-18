@@ -43,17 +43,6 @@ export default function Navbar() {
           </li>
           <li>
             {isHomePage ? (
-              <a href="#blogs" className="nav-link font-semibold transition-colors hover:text-[#8B7355]">
-                Blogs
-              </a>
-            ) : (
-              <Link href="/#blogs" className="nav-link font-semibold transition-colors hover:text-[#8B7355]">
-                Blogs
-              </Link>
-            )}
-          </li>
-          <li>
-            {isHomePage ? (
               <a href="#contact" className="nav-link font-semibold transition-colors hover:text-[#8B7355]">
                 Contact
               </a>
