@@ -128,9 +128,9 @@ export default function ServicesPage() {
                         <Link
                             href="/contact"
                             className="inline-block text-white px-8 py-3 rounded-lg font-medium transition-colors"
-                            style={{ backgroundColor: '#5C4A3A' }}
-                            onMouseEnter={(e) => (e.target.style.backgroundColor = '#3F3226')}
-                            onMouseLeave={(e) => (e.target.style.backgroundColor = '#5C4A3A')}
+                            style={{ backgroundColor: '#8B7355' }}
+                            onMouseEnter={(e) => (e.target.style.backgroundColor = '#6B5845')}
+                            onMouseLeave={(e) => (e.target.style.backgroundColor = '#8B7355')}
                         >
                             Get in Touch
                         </Link>

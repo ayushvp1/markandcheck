@@ -81,12 +81,6 @@ export default function Services() {
           >
             Our Services
           </h2>
-          <p
-            className="font-normal text-lg max-w-2xl mx-auto"
-            style={{ color: 'var(--medium-gray)' }}
-          >
-            Ashique &amp; Associates provides a full range of corporate, secretarial, financial and legal services. With expertise across industries, we deliver solutions to support your business compliance, growth, and success.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

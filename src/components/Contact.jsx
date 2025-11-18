@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getContactInfo } from '../data/contact';
-import ContactForm from './ContactForm';
+import MessageForm from './MessageForm';
 
 export default function Contact() {
   const contact = getContactInfo();
@@ -128,7 +128,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div>
-            <ContactForm />
+            <MessageForm />
           </div>
         </div>
       </div>

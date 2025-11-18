@@ -44,20 +44,20 @@ export default function Clients() {
   const handleMouseUp = () => {
     setIsDragging(false);
     
-    // Resume animation after 2 seconds of no interaction
+    // Resume animation after 500ms of no interaction
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
-    }, 2000);
+    }, 500);
   };
 
   const handleMouseLeave = () => {
     setIsDragging(false);
     setIsHovering(false);
     
-    // Resume animation after 2 seconds of no interaction
+    // Resume animation after 500ms of no interaction
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
-    }, 2000);
+    }, 500);
   };
 
   const handleMouseEnter = () => {
@@ -72,10 +72,10 @@ export default function Clients() {
       clearTimeout(interactionTimeout.current);
     }
     
-    // Resume animation after 2 seconds of no scrolling
+    // Resume animation after 500ms of no scrolling
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
-    }, 2000);
+    }, 500);
   };
 
   // Cleanup timeout on unmount
@@ -96,7 +96,7 @@ export default function Clients() {
             className="font-bold text-4xl mb-4"
             style={{ color: 'var(--black)' }}
           >
-            Our Clients Network
+            Our Client Network
           </h2>
           <p
             className="font-normal text-lg max-w-2xl mx-auto"
@@ -109,8 +109,7 @@ export default function Clients() {
         {/* Scrolling Clients */}
         <div 
           ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing"
-          style={{ scrollbarWidth: 'thin' }}
+          className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing scrollbar-hide"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -119,19 +118,23 @@ export default function Clients() {
           onScroll={handleScroll}
         >
           <style jsx>{`
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+            .scrollbar-hide {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
             @keyframes scroll {
               0% {
                 transform: translateX(0);
               }
               100% {
-                transform: translateX(-50%);
+                transform: translateX(-230%);
               }
             }
             .scroll-container {
-              animation: scroll 12s linear infinite;
-            }
-            .scroll-container:hover {
-              animation-play-state: paused;
+              animation: scroll 14.5s linear infinite;
             }
             .scroll-container.paused {
               animation-play-state: paused;
@@ -152,7 +155,7 @@ export default function Clients() {
                 />
               </div>
             ))}
-            {/* Duplicate set for seamless loop */}
+            {/* Second set for seamless loop */}
             {clients.map((client, index) => (
               <div
                 key={`second-${index}`}

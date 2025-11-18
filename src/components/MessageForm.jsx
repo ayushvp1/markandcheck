@@ -1,14 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { getContactReasons } from '../data/contact';
 
-export default function ContactForm() {
+export default function MessageForm() {
+  const reasons = getContactReasons();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',
-    cv: null
+    reason: '',
+    message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,14 +22,6 @@ export default function ContactForm() {
     setFormData(prev => ({
       ...prev,
       [name]: value
-    }));
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFormData(prev => ({
-      ...prev,
-      cv: file
     }));
   };
 
@@ -43,12 +38,9 @@ export default function ContactForm() {
         name: '',
         email: '',
         phone: '',
-        address: '',
-        cv: null
+        reason: '',
+        message: ''
       });
-      // Reset file input
-      const fileInput = document.getElementById('cv');
-      if (fileInput) fileInput.value = '';
     }, 2000);
   };
 
@@ -58,7 +50,7 @@ export default function ContactForm() {
         className="font-medium text-2xl mb-6"
         style={{ color: 'var(--black)' }}
       >
-        Submit Your Application
+        Send us a Message
       </h3>
 
       {submitStatus === 'success' && (
@@ -90,72 +82,76 @@ export default function ContactForm() {
           />
         </div>
 
-        {/* Phone Number */}
+        {/* Email and Phone */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors"
+              placeholder="(555) 123-4567"
+            />
+          </div>
+        </div>
+
+        {/* Service Interest */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
-            Phone Number *
+          <label htmlFor="reason" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
+            How can we help you? *
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
+          <select
+            id="reason"
+            name="reason"
+            value={formData.reason}
             onChange={handleChange}
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors"
-            placeholder="(555) 123-4567"
-          />
+          >
+            <option value="">Select a service</option>
+            {reasons.map((reason, index) => (
+              <option key={index} value={reason}>
+                {reason}
+              </option>
+            ))}
+          </select>
         </div>
 
-        {/* Address */}
+        {/* Message */}
         <div>
-          <label htmlFor="address" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
-            Address *
+          <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
+            Message *
           </label>
           <textarea
-            id="address"
-            name="address"
-            value={formData.address}
+            id="message"
+            name="message"
+            value={formData.message}
             onChange={handleChange}
             required
-            rows={3}
+            rows={5}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors resize-vertical"
-            placeholder="Enter your full address"
+            placeholder="Tell us about your needs and how we can help you..."
           />
-        </div>
-
-        {/* Email Address */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
-            Email ID *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors"
-            placeholder="your@email.com"
-          />
-        </div>
-
-        {/* CV Upload */}
-        <div>
-          <label htmlFor="cv" className="block text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>
-            Upload CV *
-          </label>
-          <input
-            type="file"
-            id="cv"
-            name="cv"
-            onChange={handleFileChange}
-            required
-            accept=".pdf,.doc,.docx"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-beige file:text-dark-brown hover:file:bg-light-brown"
-          />
-          <p className="mt-1 text-sm text-gray-500">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
         </div>
 
         {/* Submit Button */}
@@ -164,11 +160,11 @@ export default function ContactForm() {
             type="submit"
             disabled={isSubmitting}
             className="w-full text-white py-4 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ backgroundColor: '#8B7355' }}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = '#6B5845')}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = '#8B7355')}
+            style={{ backgroundColor: '#5C4A3A' }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = '#3F3226')}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = '#5C4A3A')}
           >
-            {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
+            {isSubmitting ? 'Sending Message...' : 'Send Message'}
           </button>
         </div>
       </form>
