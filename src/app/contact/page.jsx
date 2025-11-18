@@ -92,9 +92,9 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm font-medium mb-2" style={{ color: 'var(--black)' }}>Address</p>
                       <div className="text-sm leading-relaxed" style={{ color: 'var(--medium-gray)' }}>
-                        <p>{contact.address.street}</p>
-                        <p>{contact.address.suite}</p>
-                        <p>{contact.address.city}, {contact.address.state} {contact.address.zip}</p>
+                        <p>{contact.offices[0].street}</p>
+                        <p>{contact.offices[0].suite}</p>
+                        <p>{contact.offices[0].city}, {contact.offices[0].state} {contact.offices[0].zip}</p>
                       </div>
                     </div>
                   </div>
