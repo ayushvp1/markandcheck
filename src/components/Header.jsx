@@ -55,8 +55,8 @@ export default function Header() {
             />
           </div>
         ))}
-        {/* White gradient at top for logo visibility */}
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/90 to-transparent"></div>
+        {/* Strong white gradient at top for logo visibility */}
+        <div className="absolute top-0 left-0 right-0 h-56 bg-gradient-to-b from-white via-white/70 to-transparent"></div>
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -72,34 +72,34 @@ export default function Header() {
             src="/img/Mark_N_Check_Logo.png"
             alt="Mark & Check Logo"
             className="h-16 md:h-20 w-auto"
+            style={{ filter: 'drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 25px rgba(255,255,255,0.5)) drop-shadow(0 0 35px rgba(255,255,255,0.5))' }}
           />
         </a>
       </div>
 
       {/* Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-        <div className="max-w-4xl">
-          <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white transition-opacity duration-500">
-            {banners[currentSlide].title}
-          </h1>
-          <p className="font-normal text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl text-white/90 transition-opacity duration-500">
-            {banners[currentSlide].subtitle}
-          </p>
-          <p className="font-normal text-lg mb-12 text-white/90 transition-opacity duration-500">
-            <span className="bg-[#8B7355] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
-              {banners[currentSlide].highlight}
-            </span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center mt-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full pt-32">
+        <div className="max-w-5xl">
+          {/* Text container with fixed height */}
+          <div className="min-h-[380px] mb-8">
+            <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white transition-opacity duration-500">
+              {banners[currentSlide].title}
+            </h1>
+            <p className="font-normal text-base md:text-lg mb-8 leading-relaxed text-white transition-opacity duration-500">
+              {banners[currentSlide].subtitle}
+            </p>
+          </div>
+          {/* Fixed position buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center">
             <a
               href="#contact"
-              className="bg-primary-brown text-white hover:bg-dark-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-primary-brown text-white hover:bg-dark-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Start Your Journey
             </a>
             <a
               href="#services"
-              className="border-2 border-primary-brown text-white hover:bg-primary-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center text-lg"
+              className="border-2 border-primary-brown text-white hover:bg-primary-brown px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center text-lg"
             >
               Learn More
             </a>
