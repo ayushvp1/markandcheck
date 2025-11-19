@@ -126,7 +126,7 @@ export default function Footer() {
                     <p className="text-gray-700 font-semibold text-sm mb-1">Kochi Office</p>
                     <p className="text-gray-600 text-sm">1st Floor, Muhammad Haji Building</p>
                     <p className="text-gray-600 text-sm">Railway Station Road Near Lulu Mall</p>
-                    <p className="text-gray-600 text-sm">Edappallly PO, Kochi, Kerala 682024, India</p>
+                    <p className="text-gray-600 text-sm">Edappally PO, Kochi, Kerala 682024, India</p>
                     <p className="text-gray-600 text-sm mt-1">Phone: +91 9633776546</p>
                   </div>
                 </div>

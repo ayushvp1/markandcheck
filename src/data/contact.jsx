@@ -15,7 +15,7 @@ export const contactInfo = {
     {
       name: "Kochi Office",
       street: "1st Floor, Muhammad Haji Building",
-      suite: "Railway Station Road Near Lulu Mall Edappallly PO",
+      suite: "Railway Station Road Near Lulu Mall Edappally PO",
       city: "Kochi",
       state: "Kerala",
       zip: "682024",
