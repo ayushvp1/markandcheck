@@ -163,6 +163,42 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
+  /* Mobile scroll performance optimizations */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  /* Enable hardware acceleration for key elements */
+  img, video {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Optimize scrolling containers */
+  .overflow-x-auto, .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+  .animate-scroll-left {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .transition-all {
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  }
+  
+  /* Optimize hover effects for mobile */
+  .hover\:scale-110:hover {
+    transform: scale(1.05) translateZ(0);
+  }
 }
 
 /* Custom CSS Classes for Hover Effects */

@@ -17,7 +17,7 @@ export default function Footer() {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Contact', href: '/#contact' }
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function Footer() {
                 className="h-16 w-auto object-contain"
               />
             </Link>
-            <p className="mb-4 text-gray-600">
+            <p className="mb-4 text-sm text-gray-600">
               Your trusted partner for internal audit, regulatory clarity, and strategic compliance.
               We provide expert legal, tax, and corporate advisory services with precision and care.
             </p>
@@ -68,7 +68,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <Link
                     href={service.href}
-                    className="text-gray-600 transition-colors hover:text-[#8B7355]"
+                    className="text-sm text-gray-600 transition-colors hover:text-[#8B7355]"
                   >
                     {service.name}
                   </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 transition-colors hover:text-[#8B7355]"
+                    className="text-sm text-gray-600 transition-colors hover:text-[#8B7355]"
                   >
                     {link.name}
                   </Link>
@@ -136,7 +136,7 @@ export default function Footer() {
                 <svg className="h-5 w-5 mr-3 text-[#8B7355]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:markncheck@gmail.com" className="text-gray-600 transition-colors hover:text-[#8B7355]">
+                <a href="mailto:markncheck@gmail.com" className="text-sm text-gray-600 transition-colors hover:text-[#8B7355]">
                   markncheck@gmail.com
                 </a>
               </div>
@@ -145,7 +145,7 @@ export default function Footer() {
                 <svg className="h-5 w-5 mr-3 text-[#8B7355]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <div className="text-gray-600">
+                <div className="text-sm text-gray-600">
                   <p>Monday – Saturday: 9:30 AM – 6:00 PM</p>
                   <p>Sunday: Closed</p>
                 </div>

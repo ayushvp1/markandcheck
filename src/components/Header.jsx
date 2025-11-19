@@ -93,8 +93,8 @@ export default function Header() {
           <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center">
             <a
               href="#contact"
-              className="px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              style={{ backgroundColor: '#E8DCC8', color: '#5C4A3A' }}
+              className="px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg md:hover:shadow-xl md:transform md:hover:-translate-y-1"
+              style={{ backgroundColor: '#E8DCC8', color: '#5C4A3A', willChange: 'transform' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#D4C8B0'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#E8DCC8'}
             >

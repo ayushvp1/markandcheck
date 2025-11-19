@@ -14,11 +14,13 @@ export default function Clients() {
   ];
 
   const scrollRef = useRef(null);
+  const mobileScrollRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isMobileTouching, setIsMobileTouching] = useState(false);
   const interactionTimeout = useRef(null);
 
   const handleMouseDown = (e) => {
@@ -26,7 +28,7 @@ export default function Clients() {
     setIsUserInteracting(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
-    
+
     // Clear any existing timeout
     if (interactionTimeout.current) {
       clearTimeout(interactionTimeout.current);
@@ -43,7 +45,7 @@ export default function Clients() {
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    
+
     // Resume animation after 500ms of no interaction
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
@@ -53,7 +55,7 @@ export default function Clients() {
   const handleMouseLeave = () => {
     setIsDragging(false);
     setIsHovering(false);
-    
+
     // Resume animation after 500ms of no interaction
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
@@ -66,15 +68,39 @@ export default function Clients() {
 
   const handleScroll = () => {
     setIsUserInteracting(true);
-    
+
     // Clear existing timeout
     if (interactionTimeout.current) {
       clearTimeout(interactionTimeout.current);
     }
-    
+
     // Resume animation after 500ms of no scrolling
     interactionTimeout.current = setTimeout(() => {
       setIsUserInteracting(false);
+    }, 500);
+  };
+
+  // Touch event handlers for mobile
+  const handleTouchStart = () => {
+    setIsMobileTouching(true);
+    if (interactionTimeout.current) {
+      clearTimeout(interactionTimeout.current);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    interactionTimeout.current = setTimeout(() => {
+      setIsMobileTouching(false);
+    }, 1000);
+  };
+
+  const handleMobileScroll = () => {
+    setIsMobileTouching(true);
+    if (interactionTimeout.current) {
+      clearTimeout(interactionTimeout.current);
+    }
+    interactionTimeout.current = setTimeout(() => {
+      setIsMobileTouching(false);
     }, 500);
   };
 
@@ -90,6 +116,72 @@ export default function Clients() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-8">
+        <style jsx>{`
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+            .scrollbar-hide {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+            .scrollbar-hide-mobile::-webkit-scrollbar {
+              display: none;
+              width: 0;
+              height: 0;
+            }
+            .scrollbar-hide-mobile {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+              -webkit-overflow-scrolling: touch;
+            }
+            .scrollbar-hide-mobile::-webkit-scrollbar-track {
+              display: none;
+            }
+            .scrollbar-hide-mobile::-webkit-scrollbar-thumb {
+              display: none;
+            }
+            @keyframes scroll-desktop {
+              0% {
+                transform: translateX(0) translateZ(0);
+              }
+              100% {
+                transform: translateX(-230%) translateZ(0);
+              }
+            }
+            @keyframes scroll-mobile {
+              0% {
+                transform: translateX(0) translateZ(0);
+              }
+              100% {
+                transform: translateX(-50%) translateZ(0);
+              }
+            }
+            .scroll-container-desktop {
+              animation: scroll-desktop 14.5s linear infinite;
+              will-change: transform;
+              -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+            }
+            .scroll-container-desktop.paused {
+              animation-play-state: paused;
+            }
+            .scroll-container-mobile {
+              animation: scroll-mobile 10s linear infinite;
+              will-change: transform;
+              -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+              -webkit-animation: scroll-mobile 10s linear infinite;
+              width: max-content;
+            }
+            .scroll-container-mobile.paused {
+              animation-play-state: paused;
+              -webkit-animation-play-state: paused;
+            }
+          `}</style>
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2
@@ -106,10 +198,10 @@ export default function Clients() {
           </p>
         </div>
 
-        {/* Scrolling Clients */}
-        <div 
+        {/* Desktop Scrolling Clients */}
+        <div
           ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing scrollbar-hide"
+          className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing scrollbar-hide hidden md:block"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -117,36 +209,14 @@ export default function Clients() {
           onMouseEnter={handleMouseEnter}
           onScroll={handleScroll}
         >
-          <style jsx>{`
-            .scrollbar-hide::-webkit-scrollbar {
-              display: none;
-            }
-            .scrollbar-hide {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-            @keyframes scroll {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(-230%);
-              }
-            }
-            .scroll-container {
-              animation: scroll 14.5s linear infinite;
-            }
-            .scroll-container.paused {
-              animation-play-state: paused;
-            }
-          `}</style>
-          <div className={`flex scroll-container ${isUserInteracting || isHovering ? 'paused' : ''}`}>
+
+          <div className={`flex scroll-container-desktop ${isUserInteracting || isHovering ? 'paused' : ''}`}>
             {/* First set of clients */}
             {clients.map((client, index) => (
               <div
-                key={`first-${index}`}
-                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-all duration-300 hover:scale-110 w-80 h-60"
-                style={{ backgroundColor: 'var(--off-white)' }}
+                key={`desktop-first-${index}`}
+                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
+                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img
                   src={client.image}
@@ -158,9 +228,54 @@ export default function Clients() {
             {/* Second set for seamless loop */}
             {clients.map((client, index) => (
               <div
-                key={`second-${index}`}
-                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-all duration-300 hover:scale-110 w-80 h-60"
-                style={{ backgroundColor: 'var(--off-white)' }}
+                key={`desktop-second-${index}`}
+                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
+                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+              >
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Scrolling Clients */}
+        <div
+          ref={mobileScrollRef}
+          className="relative overflow-x-auto block md:hidden scrollbar-hide-mobile"
+          style={{
+            WebkitOverflowScrolling: 'touch',
+            msOverflowStyle: 'none',
+            scrollbarWidth: 'none'
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onScroll={handleMobileScroll}
+        >
+          <div className={`flex gap-4 px-4 scroll-container-mobile ${isMobileTouching ? 'paused' : ''}`}>
+            {/* First set of clients */}
+            {clients.map((client, index) => (
+              <div
+                key={`mobile-first-${index}`}
+                className="flex-shrink-0 p-4 rounded-lg text-center w-64 h-48"
+                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+              >
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                />
+              </div>
+            ))}
+            {/* Second set for seamless loop */}
+            {clients.map((client, index) => (
+              <div
+                key={`mobile-second-${index}`}
+                className="flex-shrink-0 p-4 rounded-lg text-center w-64 h-48"
+                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img
                   src={client.image}

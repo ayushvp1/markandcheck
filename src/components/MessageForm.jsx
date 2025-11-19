@@ -160,9 +160,9 @@ export default function MessageForm() {
             type="submit"
             disabled={isSubmitting}
             className="w-full text-white py-4 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ backgroundColor: '#5C4A3A' }}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = '#3F3226')}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = '#5C4A3A')}
+            style={{ backgroundColor: '#8B7355' }}
+            onMouseEnter={(e) => !isSubmitting && (e.target.style.backgroundColor = '#5C4A3A')}
+            onMouseLeave={(e) => !isSubmitting && (e.target.style.backgroundColor = '#8B7355')}
           >
             {isSubmitting ? 'Sending Message...' : 'Send Message'}
           </button>

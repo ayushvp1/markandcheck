@@ -96,7 +96,10 @@ export default function ExpertTeam() {
                     </p>
                     <a
                         href="#contact"
-                        className="inline-block bg-primary-brown text-white px-8 py-3 rounded-lg font-medium hover:bg-dark-brown transition-colors duration-200"
+                        className="inline-block text-white px-8 py-3 rounded-lg font-medium transition-all duration-200"
+                        style={{ backgroundColor: '#8B7355' }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5C4A3A'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B7355'}
                     >
                         Get Started Today
                     </a>
