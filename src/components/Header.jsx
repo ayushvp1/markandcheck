@@ -63,6 +63,7 @@ export default function Header() {
 
       {/* Logo */}
       <div className="absolute top-6 left-8 z-20">
+
         <a
           href="/"
           className="block"
@@ -72,8 +73,12 @@ export default function Header() {
             src="/img/Mark_N_Check_Logo.png"
             alt="Mark & Check Logo"
             className="h-12 md:h-16 w-auto"
-            style={{ filter: 'drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 25px rgba(255,255,255,0.5)) drop-shadow(0 0 35px rgba(255,255,255,0.5))' }}
+            style={{
+              filter:
+                'brightness(0) invert(1) drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 25px rgba(255,255,255,0.5)) drop-shadow(0 0 35px rgba(255,255,255,0.5))'
+            }}
           />
+
         </a>
       </div>
 
