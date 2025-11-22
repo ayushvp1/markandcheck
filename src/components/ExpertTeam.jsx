@@ -4,13 +4,13 @@ export default function ExpertTeam() {
     const teamMembers = [
         {
             name: "RAFEEQUE HUSSAIN AK",
-            position: "Founding Partner\nCorporate Lawyer",
+            position: "Corporate Lawyer",
             description:
                 "An experienced legal expert specializing in Corporate Law and Intellectual Property Rights, providing strategic guidance and robust legal support to protect and strengthen organizational interests.",
         },
         {
             name: "AHMMED RAZI KM",
-            position: "Founding Partner\nChartered Accountant",
+            position: "Chartered Accountant",
             description:
                 "A dedicated finance professional committed to delivering accurate, compliant, and strategic financial solutions across taxation, audit, and corporate advisory services.",
         },

@@ -215,7 +215,7 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`desktop-first-${index}`}
-                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
+                className="flex-shrink-0 mx-5 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
                 style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img
@@ -229,7 +229,7 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`desktop-second-${index}`}
-                className="flex-shrink-0 mx-5 p-6 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
+                className="flex-shrink-0 mx-5 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
                 style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img
@@ -260,7 +260,7 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`mobile-first-${index}`}
-                className="flex-shrink-0 p-4 rounded-lg text-center w-64 h-48"
+                className="flex-shrink-0 rounded-lg text-center w-64 h-48"
                 style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img
@@ -274,7 +274,7 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`mobile-second-${index}`}
-                className="flex-shrink-0 p-4 rounded-lg text-center w-64 h-48"
+                className="flex-shrink-0 rounded-lg text-center w-64 h-48"
                 style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
               >
                 <img

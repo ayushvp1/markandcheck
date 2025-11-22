@@ -128,7 +128,7 @@ export default async function BlogPost({ params }) {
           </p>
           <Link
             href="/contact"
-            className="inline-block gradient-green-light text-black px-8 py-3 rounded-lg font-medium transition-colors"
+            className="inline-block px-8 py-3 rounded-lg font-medium text-white bg-[#8B7355] hover:bg-[#5C4A3A] shadow-lg hover:shadow-xl transition-colors duration-200"
           >
             Get in Touch
           </Link>

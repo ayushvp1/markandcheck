@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllBlogs } from '../../data/blogs';
 
 export default function BlogsPage() {
-  const blogs = getAllBlogs();
+  const blogs = getAllBlogs().sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
