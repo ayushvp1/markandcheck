@@ -215,13 +215,13 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`desktop-first-${index}`}
-                className="flex-shrink-0 mx-5 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
-                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+                className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
+                style={{ willChange: 'transform' }}
               >
                 <img
                   src={client.image}
                   alt={client.name}
-                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                  className="h-60 w-auto object-contain shadow-md pointer-events-none"
                 />
               </div>
             ))}
@@ -229,13 +229,13 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`desktop-second-${index}`}
-                className="flex-shrink-0 mx-5 rounded-lg text-center transition-transform duration-300 hover:scale-110 w-80 h-60"
-                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+                className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
+                style={{ willChange: 'transform' }}
               >
                 <img
                   src={client.image}
                   alt={client.name}
-                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                  className="h-60 w-auto object-contain shadow-md pointer-events-none"
                 />
               </div>
             ))}
@@ -260,13 +260,13 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`mobile-first-${index}`}
-                className="flex-shrink-0 rounded-lg text-center w-64 h-48"
-                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+                className="flex-shrink-0"
+                style={{ willChange: 'transform' }}
               >
                 <img
                   src={client.image}
                   alt={client.name}
-                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                  className="h-48 w-auto object-contain shadow-md pointer-events-none"
                 />
               </div>
             ))}
@@ -274,13 +274,13 @@ export default function Clients() {
             {clients.map((client, index) => (
               <div
                 key={`mobile-second-${index}`}
-                className="flex-shrink-0 rounded-lg text-center w-64 h-48"
-                style={{ backgroundColor: 'var(--off-white)', willChange: 'transform' }}
+                className="flex-shrink-0"
+                style={{ willChange: 'transform' }}
               >
                 <img
                   src={client.image}
                   alt={client.name}
-                  className="w-full h-full rounded-lg object-contain shadow-md pointer-events-none"
+                  className="h-48 w-auto object-contain shadow-md pointer-events-none"
                 />
               </div>
             ))}
