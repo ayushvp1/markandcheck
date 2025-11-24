@@ -29,6 +29,7 @@ export default function AdminPage() {
   const [newsFullDescription, setNewsFullDescription] = useState("");
   const [newsCategory, setNewsCategory] = useState("News");
   const [newsReadTime, setNewsReadTime] = useState("5 min read");
+  const [newsPublishDate, setNewsPublishDate] = useState("");
   const [newsTags, setNewsTags] = useState("");
   const [newsImageFile, setNewsImageFile] = useState(null);
   const [newsSubmitting, setNewsSubmitting] = useState(false);
@@ -133,6 +134,7 @@ export default function AdminPage() {
       formData.append("fullDescription", newsFullDescription);
       formData.append("category", newsCategory);
       formData.append("readTime", newsReadTime);
+      formData.append("publishDate", newsPublishDate || new Date().toISOString());
       formData.append("tags", newsTags);
       formData.append("image", newsImageFile);
       formData.append("htmlContent", newsHtmlContent);
@@ -159,6 +161,7 @@ export default function AdminPage() {
       setNewsFullDescription("");
       setNewsCategory("News");
       setNewsReadTime("5 min read");
+      setNewsPublishDate("");
       setNewsTags("");
       setNewsImageFile(null);
       setNewsHtmlContent("");
@@ -181,6 +184,7 @@ export default function AdminPage() {
     setNewsFullDescription(item.fullDescription || "");
     setNewsCategory(item.category || "News");
     setNewsReadTime(item.readTime || "5 min read");
+    setNewsPublishDate(item.publishDate ? new Date(item.publishDate).toISOString().split('T')[0] : "");
     setNewsTags(item.tags?.join(", ") || "");
     setNewsHtmlContent(item.htmlContent || "");
     setCurrentImageUrl(item.image || "");
@@ -197,6 +201,7 @@ export default function AdminPage() {
     setNewsFullDescription("");
     setNewsCategory("News");
     setNewsReadTime("5 min read");
+    setNewsPublishDate("");
     setNewsTags("");
     setNewsImageFile(null);
     setNewsHtmlContent("");
@@ -216,6 +221,7 @@ export default function AdminPage() {
         fullDescription: newsFullDescription,
         category: newsCategory,
         readTime: newsReadTime,
+        publishDate: newsPublishDate || new Date().toISOString(),
         tags: newsTags,
         htmlContent: newsHtmlContent,
       };
@@ -423,14 +429,26 @@ export default function AdminPage() {
                   />
                 </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
-                <input
-                  type="text"
-                  className="w-full border rounded px-3 py-2 text-sm"
-                  value={newsTags}
-                  onChange={(e) => setNewsTags(e.target.value)}
-                />
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Publish Date</label>
+                  <input
+                    type="date"
+                    className="w-full border rounded px-3 py-2 text-sm"
+                    value={newsPublishDate}
+                    onChange={(e) => setNewsPublishDate(e.target.value)}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Leave empty for today's date</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                  <input
+                    type="text"
+                    className="w-full border rounded px-3 py-2 text-sm"
+                    value={newsTags}
+                    onChange={(e) => setNewsTags(e.target.value)}
+                  />
+                </div>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">

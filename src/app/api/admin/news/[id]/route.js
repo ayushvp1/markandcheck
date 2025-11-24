@@ -37,6 +37,7 @@ export async function PUT(request, { params }) {
       const fullDescription = formData.get("fullDescription") || "";
       const category = formData.get("category") || "News";
       const readTime = formData.get("readTime") || "5 min read";
+      const publishDate = formData.get("publishDate") || new Date().toISOString();
       const tagsRaw = formData.get("tags") || "";
       const htmlContent = formData.get("htmlContent") || "";
       const imageFile = formData.get("image");
@@ -47,6 +48,7 @@ export async function PUT(request, { params }) {
         fullDescription,
         category,
         readTime,
+        publishDate,
         tags: tagsRaw.split(",").map((t) => t.trim()).filter(Boolean),
         htmlContent,
       };
@@ -67,6 +69,7 @@ export async function PUT(request, { params }) {
         fullDescription: body.fullDescription,
         category: body.category,
         readTime: body.readTime,
+        publishDate: body.publishDate || new Date().toISOString(),
         tags: body.tags?.split(",").map((t) => t.trim()).filter(Boolean) || [],
         htmlContent: body.htmlContent || "",
       };
