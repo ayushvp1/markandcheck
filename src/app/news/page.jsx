@@ -2,6 +2,10 @@ import Link from "next/link";
 import { dbConnect } from "@/lib/mongodb";
 import News from "@/models/News";
 
+// Force dynamic rendering - fetch fresh data on every request
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 function formatDate(date) {
   const d = new Date(date);
   return d.toLocaleDateString("en-US", {

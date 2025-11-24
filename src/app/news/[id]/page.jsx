@@ -4,6 +4,10 @@ import { dbConnect } from "@/lib/mongodb";
 import News from "@/models/News";
 import "../../wysiwyg.css";
 
+// Force dynamic rendering - fetch fresh data on every request
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 function formatDate(date) {
   const d = new Date(date);
   return d.toLocaleDateString("en-US", {
