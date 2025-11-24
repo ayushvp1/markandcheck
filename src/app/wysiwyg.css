@@ -1,0 +1,132 @@
+/* Tiptap Editor Styles */
+.ProseMirror {
+  outline: none;
+}
+
+/* News Content Display Styles */
+.news-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #333 !important;
+}
+
+.news-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333 !important;
+}
+
+.news-content p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: #666 !important;
+}
+
+.news-content ul,
+.news-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.news-content ul {
+  list-style-type: disc;
+}
+
+.news-content ol {
+  list-style-type: decimal;
+}
+
+.news-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  color: #666 !important;
+}
+
+.news-content blockquote {
+  border-left: 4px solid #8B7355;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #666 !important;
+}
+
+.news-content a {
+  color: #8B7355 !important;
+  text-decoration: underline;
+}
+
+.news-content strong {
+  font-weight: 600;
+  color: #333 !important;
+}
+
+.news-content em {
+  font-style: italic;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.ProseMirror p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: #666;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  color: #666;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #8B7355;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #666;
+}
+
+.ProseMirror a {
+  color: #8B7355;
+  text-decoration: underline;
+}
+
+.ProseMirror strong {
+  font-weight: 600;
+}
+
+.ProseMirror em {
+  font-style: italic;
+}
