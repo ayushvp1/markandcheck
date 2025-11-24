@@ -16,17 +16,28 @@ export default async function NewsPage() {
   const items = await News.find().sort({ publishDate: -1, createdAt: -1 }).lean();
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="gradient-green-light text-black py-16">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">News & Updates</h1>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Stay updated with the latest regulatory changes, insights and Mark &amp; Check news.
-          </p>
-        </div>
-      </div>
+  <section id="blogs" className="py-16 bg-gray-50">
+       <div className="max-w-6xl mx-auto px-8">
+         <div className="text-center mb-16">
+           <h2
+             className="font-bold text-4xl mb-4"
+             style={{ color: 'var(--black)' }}
+           >
+             Latest Updates
+           </h2>
+           <p
+             className="font-normal text-lg max-w-2xl mx-auto"
+             style={{ color: 'var(--medium-gray)' }}
+           >
+             Stay informed with our latest articles on accounting, tax planning, and business finance
+           </p>
+         </div>
+ 
+        
+ 
+    
 
-      <div className="max-w-6xl mx-auto px-8 py-16">
+      <div className="max-w-6xl mx-auto px-8 py-0">
         {items.length === 0 ? (
           <p className="text-center text-gray-500 text-sm">No news items published yet.</p>
         ) : (
@@ -106,6 +117,21 @@ export default async function NewsPage() {
           </div>
         )}
       </div>
-    </div>
+
+           {/* View All Blogs Button */}
+         <div className="text-center mt-12">
+           <Link
+             href="/news"
+             className="inline-block gradient-green-light text-black px-8 py-3 rounded-lg font-medium transition-colors"
+           >
+             View All Articles
+           </Link>
+         </div>
+       </div>
+     </section>
+
+
+
+
   );
 }

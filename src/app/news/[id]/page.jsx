@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { dbConnect } from "@/lib/mongodb";
 import News from "@/models/News";
@@ -13,7 +14,7 @@ function formatDate(date) {
 }
 
 export default async function NewsDetailPage({ params }) {
-  const { id } = await params; // here `id` actually holds the slug segment
+  const { id } = await params;
 
   await dbConnect();
 
@@ -32,71 +33,120 @@ export default async function NewsDetailPage({ params }) {
     notFound();
   }
 
-  // Debug logging
-  console.log("News item data:", {
-    title: item.title,
-    hasHtmlContent: !!item.htmlContent,
-    htmlContentLength: item.htmlContent?.length || 0,
-    hasFullDescription: !!item.fullDescription,
-    htmlContentPreview: item.htmlContent?.substring(0, 100)
-  });
-
   return (
     <div className="min-h-screen bg-white">
-      <div className="gradient-green-light text-black py-16">
-        <div className="max-w-4xl mx-auto px-8">
-          <p className="text-sm uppercase tracking-wide opacity-80 mb-2">
-            {item.category || "News"}
-          </p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{item.title}</h1>
-          <div
-            className="flex flex-wrap items-center text-sm gap-2"
-            style={{ color: "var(--light-gray)" }}
-          >
-            {item.publishDate && <span>{formatDate(item.publishDate)}</span>}
-            {item.readTime && <span>• {item.readTime}</span>}
-            {item.author && <span>• By {item.author}</span>}
+      {/* Hero Section */}
+      <div className="relative">
+        <div className="h-96 overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
+        </div>
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl px-8">
+            <div className="mb-4">
+              <span className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">
+                {item.category || "News"}
+              </span>
+            </div>
+            <h1 className="font-medium text-4xl md:text-5xl mb-4">
+              {item.title}
+            </h1>
+            <div className="flex items-center justify-center text-sm space-x-4">
+              <span>By {item.author}</span>
+              <span>•</span>
+              <span>{formatDate(item.publishDate)}</span>
+              <span>•</span>
+              <span>{item.readTime}</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-8 py-10 space-y-8">
-        {item.image && (
-          <div className="w-full rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        )}
+      {/* Content */}
+      <div className="max-w-4xl mx-auto px-8 py-16">
+        {/* Back to News */}
+        <div className="mb-8">
+          <Link
+            href="/news"
+            className="inline-flex items-center text-sm font-medium hover:text-blue-600 transition-colors"
+            style={{ color: "var(--trust-blue)" }}
+          >
+            ← Back to All News
+          </Link>
+        </div>
 
-        {item.htmlContent ? (
-          <div 
-            className="prose prose-lg max-w-none news-content"
-            style={{
-              color: 'var(--medium-gray)',
-              lineHeight: '1.75'
-            }}
-            dangerouslySetInnerHTML={{ __html: item.htmlContent }}
-          />
-        ) : item.fullDescription ? (
-          <div className="space-y-4">
-            {item.fullDescription
-              .split(/\n{2,}/)
-              .map((block) => block.trim())
-              .filter(Boolean)
-              .map((block, index) => (
-                <p
+        {/* Article Content */}
+        <article className="prose prose-lg max-w-none">
+          {item.shortDescription && (
+            <div className="mb-8">
+              <p
+                className="text-xl leading-relaxed"
+                style={{ color: "var(--medium-gray)" }}
+              >
+                {item.shortDescription}
+              </p>
+            </div>
+          )}
+
+          {/* Tags */}
+          {item.tags && item.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-8">
+              {item.tags.map((tag, index) => (
+                <span
                   key={index}
-                  className="text-base leading-relaxed"
-                  style={{ color: "var(--medium-gray)" }}
+                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
                 >
-                  {block}
-                </p>
+                  {tag}
+                </span>
               ))}
-          </div>
-        ) : null}
+            </div>
+          )}
+
+          {/* Rich Content from WYSIWYG Editor */}
+          {item.htmlContent ? (
+            <div
+              className="news-content"
+              dangerouslySetInnerHTML={{ __html: item.htmlContent }}
+            />
+          ) : item.fullDescription ? (
+            <div className="space-y-4">
+              {item.fullDescription
+                .split(/\n{2,}/)
+                .map((block) => block.trim())
+                .filter(Boolean)
+                .map((block, index) => (
+                  <p
+                    key={index}
+                    className="text-lg leading-relaxed mb-4"
+                    style={{ color: "var(--black)" }}
+                  >
+                    {block}
+                  </p>
+                ))}
+            </div>
+          ) : null}
+        </article>
+
+        {/* Call to Action */}
+        <div className="mt-16 p-8 bg-gray-50 rounded-xl text-center">
+          <h3 className="text-2xl font-medium mb-4" style={{ color: "var(--black)" }}>
+            Need Professional Help?
+          </h3>
+          <p className="text-lg mb-6" style={{ color: "var(--medium-gray)" }}>
+            Our team of certified accountants is here to help you with all your financial needs.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-3 rounded-lg font-medium text-white bg-[#8B7355] hover:bg-[#5C4A3A] shadow-lg hover:shadow-xl transition-colors duration-200"
+          >
+            Get in Touch
+          </Link>
+        </div>
       </div>
     </div>
   );
