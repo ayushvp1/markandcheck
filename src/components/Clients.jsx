@@ -4,13 +4,23 @@ import { useRef, useEffect, useState } from 'react';
 
 export default function Clients() {
   const clients = [
-    { name: "Careland", image: "/img/trusted_companies/Careland.jpg" },
-    { name: "Talenmark", image: "/img/trusted_companies/Talenmark.jpg" },
-    { name: "Woodlem Park", image: "/img/trusted_companies/Woodlem Park.jpg" },
-    { name: "Faceworld Leadership School", image: "/img/trusted_companies/faceworldleadershipschool.jpg" },
-    { name: "Hillsinai Finishing School", image: "/img/trusted_companies/hillsinaifinishingschool.jpg" },
-    { name: "Life Infusion Pharmaceuticals Pvt. Ltd.", image: "/img/trusted_companies/lifeinfusionpharmaceuticalsprivatelimited.jpg" },
-    { name: "Tour De Stories", image: "/img/trusted_companies/tourdestories.jpg" }
+    { name: "Client 1", image: "/img/newedit/1.jpg" },
+    { name: "Client 2", image: "/img/newedit/2.jpg" },
+    { name: "Client 3", image: "/img/newedit/3.jpg" },
+    { name: "Client 4", image: "/img/newedit/4.jpg" },
+    { name: "Client 5", image: "/img/newedit/5.jpg" },
+    { name: "Client 6", image: "/img/newedit/6.jpg" },
+    { name: "Client 7", image: "/img/newedit/7.jpg" },
+    { name: "Client 8", image: "/img/newedit/8.jpg" },
+    { name: "Client 9", image: "/img/newedit/9.jpg" },
+    { name: "Client 10", image: "/img/newedit/10.jpg" },
+    { name: "Client 11", image: "/img/newedit/11.jpg" },
+    { name: "Client 12", image: "/img/newedit/12.jpg" },
+    { name: "Client 13", image: "/img/newedit/13.jpg" },
+    { name: "Client 14", image: "/img/newedit/14.jpg" },
+    { name: "Client 15", image: "/img/newedit/15.jpg" },
+    { name: "Client 16", image: "/img/newedit/16.jpg" },
+    { name: "Client 17", image: "/img/newedit/17.jpg" }
   ];
 
   const scrollRef = useRef(null);
@@ -145,7 +155,7 @@ export default function Clients() {
                 transform: translateX(0) translateZ(0);
               }
               100% {
-                transform: translateX(-230%) translateZ(0);
+                transform: translateX(-610%) translateZ(0);
               }
             }
             @keyframes scroll-mobile {
@@ -157,7 +167,7 @@ export default function Clients() {
               }
             }
             .scroll-container-desktop {
-              animation: scroll-desktop 14.5s linear infinite;
+              animation: scroll-desktop 13.5s linear infinite;
               will-change: transform;
               -webkit-transform: translateZ(0);
               transform: translateZ(0);

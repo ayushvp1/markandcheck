@@ -70,13 +70,9 @@ export default function Header() {
           aria-label="Mark & Check - Go to Homepage"
         >
           <img
-            src="/img/Mark_N_Check_Logo.png"
+            src="/img/newedit/Asset 4Markncheck White.png"
             alt="Mark & Check Logo"
             className="h-12 md:h-16 w-auto"
-            style={{
-              filter:
-                'brightness(0) invert(1) drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 25px rgba(255,255,255,0.5)) drop-shadow(0 0 35px rgba(255,255,255,0.5))'
-            }}
           />
 
         </a>
