@@ -17,7 +17,6 @@ export default function Clients() {
     { name: "Client 10", image: "/img/newedit/10.jpg" },
     { name: "Client 11", image: "/img/newedit/11.jpg" },
     { name: "Client 12", image: "/img/newedit/12.jpg" },
-    { name: "Client 13", image: "/img/newedit/13.jpg" },
     { name: "Client 14", image: "/img/newedit/14.jpg" },
     { name: "Client 15", image: "/img/newedit/15.jpg" },
     { name: "Client 16", image: "/img/newedit/16.jpg" },
