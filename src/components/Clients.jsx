@@ -167,7 +167,7 @@ export default function Clients() {
               }
             }
             .scroll-container-desktop {
-              animation: scroll-desktop 13.5s linear infinite;
+              animation: scroll-desktop 30s linear infinite;
               will-change: transform;
               -webkit-transform: translateZ(0);
               transform: translateZ(0);
@@ -178,13 +178,13 @@ export default function Clients() {
               animation-play-state: paused;
             }
             .scroll-container-mobile {
-              animation: scroll-mobile 10s linear infinite;
+              animation: scroll-mobile 30s linear infinite;
               will-change: transform;
               -webkit-transform: translateZ(0);
               transform: translateZ(0);
               backface-visibility: hidden;
               -webkit-backface-visibility: hidden;
-              -webkit-animation: scroll-mobile 10s linear infinite;
+              -webkit-animation: scroll-mobile 30s linear infinite;
               width: max-content;
             }
             .scroll-container-mobile.paused {
