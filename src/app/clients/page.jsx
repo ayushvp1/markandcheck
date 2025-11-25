@@ -25,7 +25,7 @@ export default function ClientsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="gradient-green-light text-black py-16">
+      <div className="gradient-brown-light text-white py-16">
         <div className="max-w-6xl mx-auto px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Client Network</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">

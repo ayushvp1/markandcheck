@@ -119,7 +119,7 @@ export default function Services() {
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="inline-block gradient-green-light text-black px-8 py-3 rounded-lg font-medium transition-colors"
+            className="inline-block bg-[#8B7355] text-white px-8 py-3 rounded-lg font-medium hover:bg-dark-brown transition-colors"
           >
             View All Services
           </Link>

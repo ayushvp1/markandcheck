@@ -301,7 +301,7 @@ export default function Clients() {
         <div className="text-center mt-12">
           <Link
             href="/clients"
-            className="inline-block px-8 py-3  gradient-green-light font-semibold rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg"
+            className="inline-block px-8 py-3 bg-[#8B7355] text-white font-semibold rounded-lg hover:bg-dark-brown transition-colors duration-300 shadow-md hover:shadow-lg"
           >
             View All Clients
           </Link>
