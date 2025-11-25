@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Clients() {
   const clients = [
@@ -295,6 +296,16 @@ export default function Clients() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* View All Clients Button */}
+        <div className="text-center mt-12">
+          <Link
+            href="/clients"
+            className="inline-block px-8 py-3  gradient-green-light font-semibold rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg"
+          >
+            View All Clients
+          </Link>
         </div>
       </div>
     </section>
