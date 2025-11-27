@@ -126,7 +126,7 @@ export default function ServicesPage() {
                             We understand that every business is unique. Contact us to discuss how we can tailor our services to meet your specific needs.
                         </p>
                         <Link
-                            href="/contact"
+                            href="/contact-simple"
                             className="inline-block text-white px-8 py-3 rounded-lg font-medium transition-colors"
                             style={{ backgroundColor: '#8B7355' }}
                             onMouseEnter={(e) => (e.target.style.backgroundColor = '#6B5845')}
