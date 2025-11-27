@@ -25,7 +25,7 @@ export default function CareersPage() {
               <h3 className="font-semibold text-xl text-[#8B7355] mb-4">Requirements</h3>
               <div className="space-y-3 text-gray-700">
                 <p>
-                  <span className="font-semibold">Position:</span> CA & CMA Articleship
+                  <span className="font-semibold">Position:</span> CA or CMA Articleship
                 </p>
                 <p>
                   <span className="font-semibold">Location:</span> Kochi / Calicut

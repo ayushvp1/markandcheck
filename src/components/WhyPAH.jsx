@@ -8,10 +8,9 @@ export default function WhyPAH() {
           <div className="text-white p-8 rounded-lg bg-[#8B7355]">
             <h3 className="text-2xl font-bold mb-4">MISSION</h3>
             <p className="text-lg leading-relaxed">
-              At Mark & Check we save time & money & bring our clients complete peace of mind by providing the
-              best accounting, tax preparation & financial management services. Mark & Check capitalizes on
-              providing our clients a competitive advantage by being innovative, proactive, and true to our
-              core values while delivering precision in every number and the highest quality in everything we do.
+              To establish Mark & Check as the undisputed leader in Kerala’s corporate sector while expanding our
+              global footprint, ensuring that businesses worldwide have access to our premier expertise through a
+              growing network of excellence.
             </p>
           </div>
 
@@ -19,10 +18,9 @@ export default function WhyPAH() {
           <div className="text-black p-8 rounded-lg bg-white">
             <h3 className="text-2xl font-bold mb-4">VISION</h3>
             <p className="text-lg leading-relaxed">
-              To be the most trusted accounting and financial services provider in the region, empowering
-              businesses to achieve financial success through expert guidance, innovative solutions, and
-              unwavering commitment to accuracy. We strive to build lasting partnerships while maintaining
-              the highest standards of professional excellence and ethical practice.
+              To redefine the landscape of corporate services by delivering audit-centric solutions fortified by
+              legal compliance through an unprecedented, systematic framework that sets a new industry standard
+              for precision and integrity.
             </p>
           </div>
         </div>
