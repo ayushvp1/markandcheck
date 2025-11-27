@@ -306,10 +306,7 @@ export default function Clients() {
           <button
             type="button"
             onClick={() => setShowAllClients((prev) => !prev)}
-            className="inline-block text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
-            style={{ backgroundColor: '#8B7355' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5C4A3A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#8B7355')}
+            className="inline-block px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg btn-brown"
           >
             {showAllClients ? 'Hide Clients' : 'View All Clients'}
           </button>

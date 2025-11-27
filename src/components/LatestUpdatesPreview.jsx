@@ -118,7 +118,7 @@ export default async function LatestUpdatesPreview() {
         <div className="text-center mt-12">
           <Link
             href="/news"
-            className="inline-block bg-[#8B7355] text-white px-8 py-3 rounded-lg font-medium hover:bg-dark-brown transition-colors"
+            className="inline-block px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg btn-brown"
           >
             View All Articles
           </Link>

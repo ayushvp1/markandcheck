@@ -232,6 +232,17 @@ body {
   color: var(--white);
 }
 
+/* Brown button utilities */
+.btn-brown {
+  background-color: #8B7355;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-brown:hover {
+  background-color: #5C4A3A;
+}
+
 .footer-link {
   color: var(--light-gray);
   transition: color 0.3s ease;
