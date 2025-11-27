@@ -122,13 +122,13 @@ export default async function NewsPage() {
         )}
       </div>
 
-           {/* View All Blogs Button */}
+           {/* Back to Home Button */}
          <div className="text-center mt-12">
            <Link
-             href="/news"
+             href="/"
              className="inline-block bg-[#8B7355] text-white px-8 py-3 rounded-lg font-medium hover:bg-dark-brown transition-colors"
            >
-             View All Articles
+             Back to Home
            </Link>
          </div>
        </div>

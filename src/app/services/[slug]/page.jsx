@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({ params }) {
                 Contact us today to discuss how this service can benefit your business.
               </p>
               <Link 
-                href="/contact" 
+                href="/quote" 
                 className="block w-full bg-[var(--primary-brown)] text-white text-center py-3 rounded-lg font-medium hover:-translate-y-0.5 transform transition-all duration-300 shadow-sm mb-3 hover:bg-[#5C4A3A]"
               >
                 Get a Quote

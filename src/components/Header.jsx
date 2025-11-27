@@ -83,6 +83,11 @@ export default function Header() {
         <div className="max-w-5xl">
           {/* Text container with fixed height */}
           <div className="min-h-[380px] mb-8">
+            {currentSlide === 0 && (
+              <p className="text-lg md:text-xl mb-2 text-white/90 tracking-wide">
+                Mark Your Dreams
+              </p>
+            )}
             <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white transition-opacity duration-500">
               {banners[currentSlide].title}
             </h1>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import Link from 'next/link';
 
 export default function Clients() {
   const clients = [
@@ -31,6 +30,7 @@ export default function Clients() {
   const [isHovering, setIsHovering] = useState(false);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [isMobileTouching, setIsMobileTouching] = useState(false);
+  const [showAllClients, setShowAllClients] = useState(false);
   const interactionTimeout = useRef(null);
 
   const handleMouseDown = (e) => {
@@ -299,13 +299,34 @@ export default function Clients() {
 
         {/* View All Clients Button */}
         <div className="text-center mt-12">
-          <Link
-            href="/clients"
-            className="inline-block px-8 py-3 bg-[#8B7355] text-white font-semibold rounded-lg hover:bg-dark-brown transition-colors duration-300 shadow-md hover:shadow-lg"
+          <button
+            type="button"
+            onClick={() => setShowAllClients((prev) => !prev)}
+            className="inline-block text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+            style={{ backgroundColor: '#8B7355' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5C4A3A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#8B7355')}
           >
-            View All Clients
-          </Link>
+            {showAllClients ? 'Hide Clients' : 'View All Clients'}
+          </button>
         </div>
+
+        {showAllClients && (
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
+            {clients.map((client, index) => (
+              <div
+                key={`all-${index}`}
+                className="flex items-center justify-center p-4"
+              >
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="max-h-40 w-auto object-contain shadow-md"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
