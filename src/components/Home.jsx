@@ -8,7 +8,7 @@ import ExpertTeam from './ExpertTeam';
 import StatsAndCareers from './StatsAndCareers';
 import Clients from './Clients';
 import Contact from './Contact';
-import NewsPage from '@/app/news/page';
+import LatestUpdatesPreview from './LatestUpdatesPreview';
 
 export default function Home() {
   return (
@@ -17,7 +17,8 @@ export default function Home() {
       <OurStory />
       <Services />
       {/* <Blogs /> */}
-      <NewsPage />
+      <LatestUpdatesPreview />
+
       <Clients />
       <WhyPAH />
       <Industries />
