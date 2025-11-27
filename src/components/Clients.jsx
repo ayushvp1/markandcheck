@@ -208,94 +208,98 @@ export default function Clients() {
           </p>
         </div>
 
-        {/* Desktop Scrolling Clients */}
-        <div
-          ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing scrollbar-hide hidden md:block"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter}
-          onScroll={handleScroll}
-        >
+        {!showAllClients && (
+          <>
+            {/* Desktop Scrolling Clients */}
+            <div
+              ref={scrollRef}
+              className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing scrollbar-hide hidden md:block"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onScroll={handleScroll}
+            >
 
-          <div className={`flex scroll-container-desktop ${isUserInteracting || isHovering ? 'paused' : ''}`}>
-            {/* First set of clients */}
-            {clients.map((client, index) => (
-              <div
-                key={`desktop-first-${index}`}
-                className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
-                style={{ willChange: 'transform' }}
-              >
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  className="h-60 w-auto object-contain shadow-md pointer-events-none"
-                />
+              <div className={`flex scroll-container-desktop ${isUserInteracting || isHovering ? 'paused' : ''}`}>
+                {/* First set of clients */}
+                {clients.map((client, index) => (
+                  <div
+                    key={`desktop-first-${index}`}
+                    className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
+                    style={{ willChange: 'transform' }}
+                  >
+                    <img
+                      src={client.image}
+                      alt={client.name}
+                      className="h-60 w-auto object-contain shadow-md pointer-events-none"
+                    />
+                  </div>
+                ))}
+                {/* Second set for seamless loop */}
+                {clients.map((client, index) => (
+                  <div
+                    key={`desktop-second-${index}`}
+                    className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
+                    style={{ willChange: 'transform' }}
+                  >
+                    <img
+                      src={client.image}
+                      alt={client.name}
+                      className="h-60 w-auto object-contain shadow-md pointer-events-none"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-            {/* Second set for seamless loop */}
-            {clients.map((client, index) => (
-              <div
-                key={`desktop-second-${index}`}
-                className="flex-shrink-0 mx-5 transition-transform duration-300 hover:scale-110"
-                style={{ willChange: 'transform' }}
-              >
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  className="h-60 w-auto object-contain shadow-md pointer-events-none"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Mobile Scrolling Clients */}
-        <div
-          ref={mobileScrollRef}
-          className="relative overflow-x-auto block md:hidden scrollbar-hide-mobile"
-          style={{
-            WebkitOverflowScrolling: 'touch',
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none'
-          }}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onScroll={handleMobileScroll}
-        >
-          <div className={`flex gap-4 px-4 scroll-container-mobile ${isMobileTouching ? 'paused' : ''}`}>
-            {/* First set of clients */}
-            {clients.map((client, index) => (
-              <div
-                key={`mobile-first-${index}`}
-                className="flex-shrink-0"
-                style={{ willChange: 'transform' }}
-              >
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  className="h-48 w-auto object-contain shadow-md pointer-events-none"
-                />
+            {/* Mobile Scrolling Clients */}
+            <div
+              ref={mobileScrollRef}
+              className="relative overflow-x-auto block md:hidden scrollbar-hide-mobile"
+              style={{
+                WebkitOverflowScrolling: 'touch',
+                msOverflowStyle: 'none',
+                scrollbarWidth: 'none'
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onScroll={handleMobileScroll}
+            >
+              <div className={`flex gap-4 px-4 scroll-container-mobile ${isMobileTouching ? 'paused' : ''}`}>
+                {/* First set of clients */}
+                {clients.map((client, index) => (
+                  <div
+                    key={`mobile-first-${index}`}
+                    className="flex-shrink-0"
+                    style={{ willChange: 'transform' }}
+                  >
+                    <img
+                      src={client.image}
+                      alt={client.name}
+                      className="h-48 w-auto object-contain shadow-md pointer-events-none"
+                    />
+                  </div>
+                ))}
+                {/* Second set for seamless loop */}
+                {clients.map((client, index) => (
+                  <div
+                    key={`mobile-second-${index}`}
+                    className="flex-shrink-0"
+                    style={{ willChange: 'transform' }}
+                  >
+                    <img
+                      src={client.image}
+                      alt={client.name}
+                      className="h-48 w-auto object-contain shadow-md pointer-events-none"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-            {/* Second set for seamless loop */}
-            {clients.map((client, index) => (
-              <div
-                key={`mobile-second-${index}`}
-                className="flex-shrink-0"
-                style={{ willChange: 'transform' }}
-              >
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  className="h-48 w-auto object-contain shadow-md pointer-events-none"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        )}
 
         {/* View All Clients Button */}
         <div className="text-center mt-12">
