@@ -106,9 +106,17 @@ export default function Header() {
             ) : (
               <>
                 <h1 className="font-semibold text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight text-white transition-opacity duration-500">
-                  {banners[currentSlide].title}
+                  {currentSlide === 2 ? (
+                    <>
+                      Empowering Your
+                      <br />
+                      Business Success
+                    </>
+                  ) : (
+                    banners[currentSlide].title
+                  )}
                 </h1>
-                <p className="font-normal text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed text-white transition-opacity duration-500">
+                <p className="font-normal text-base md:text-lg lg:text-xl mb-8 leading-relaxed text-white transition-opacity duration-500">
                   {banners[currentSlide].subtitle}
                 </p>
               </>
