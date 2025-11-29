@@ -91,13 +91,14 @@ export default function Header() {
                 </p>
 
                 {/* Line 2: Mark & Check */}
-                <h1 className="font-semibold text-5xl md:text-7xl lg:text-8xl leading-tight text-white mb-3">
+                <h1 className="font-semibold text-5xl md:text-7xl lg:text-8xl leading-tight text-white mb-5">
                   Mark &amp; Check
                 </h1>
 
                 {/* Line 3: Mark Your Dreams (tagline) */}
                 <p
-                  className="inline-block text-xl md:text-2xl lg:text-3xl font-semibold mb-6 tracking-[0.25em] text-white"
+                  className="inline-block text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 tracking-[0.25em] text-white"
+                  style={{ fontFamily: 'MrsSaintDelafield, system-ui, sans-serif' }}
                 >
                   Mark Your Dreams
                 </p>
