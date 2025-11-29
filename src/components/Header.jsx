@@ -79,22 +79,41 @@ export default function Header() {
       </div>
 
       {/* Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full pt-24">
         <div className="max-w-5xl">
           {/* Text container with fixed height */}
           <div className="min-h-[380px] mb-8">
-            {currentSlide === 0 && (
-              <p className="text-lg md:text-xl mb-2 text-white/90 tracking-wide">
-                Mark Your Dreams
-              </p>
+            {currentSlide === 0 ? (
+              <>
+                {/* Line 1: Welcome to */}
+                <p className="text-sm md:text-base lg:text-lg text-white/80 tracking-[0.35em] mb-3 uppercase">
+                  Welcome to
+                </p>
+
+                {/* Line 2: Mark & Check */}
+                <h1 className="font-semibold text-5xl md:text-7xl lg:text-8xl leading-tight text-white mb-3">
+                  Mark &amp; Check
+                </h1>
+
+                {/* Line 3: Mark Your Dreams (tagline) */}
+                <p
+                  className="inline-block text-xl md:text-2xl lg:text-3xl font-semibold mb-6 tracking-[0.25em] text-white"
+                >
+                  Mark Your Dreams
+                </p>
+              </>
+            ) : (
+              <>
+                <h1 className="font-semibold text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight text-white transition-opacity duration-500">
+                  {banners[currentSlide].title}
+                </h1>
+                <p className="font-normal text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed text-white transition-opacity duration-500">
+                  {banners[currentSlide].subtitle}
+                </p>
+              </>
             )}
-            <h1 className="font-medium text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white transition-opacity duration-500">
-              {banners[currentSlide].title}
-            </h1>
-            <p className="font-normal text-base md:text-lg mb-8 leading-relaxed text-white transition-opacity duration-500">
-              {banners[currentSlide].subtitle}
-            </p>
           </div>
+
           {/* Fixed position buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center">
             <a
